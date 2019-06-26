@@ -1,0 +1,16 @@
+{
+	"name": "sbComponents",
+	"url": "https://github.com/peteshand/sbComponents",
+	"license": "MIT",
+	"tags": ["storyblok", "component"],
+	"description": "A component system for storyblok",
+	"version": "0.0.1",
+	"releasenote": "init commit",
+	"contributors": [ "p.j.shand" ],
+	"classPath": "src",
+	"dependencies": {
+		"robotlegs": "",
+		"condition": "",
+		"fuse":""
+	}
+}
