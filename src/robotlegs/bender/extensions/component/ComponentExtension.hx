@@ -8,7 +8,9 @@ import robotlegs.bender.framework.api.IInjector;
 class ComponentExtension implements IExtension {
 	private var _injector:IInjector;
 
-	public function new() {}
+	public function new() {
+		//
+	}
 
 	public function extend(context:IContext):Void {
 		_injector = context.injector;

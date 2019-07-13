@@ -10,7 +10,6 @@ class ComponentView extends Sprite implements IComponentView {
 	@:isVar public var componentViews(default, set):Array<Sprite> = [];
 	public var condition:Condition;
 	public var params:Array<Dynamic>;
-	
 
 	public function new(?componentData:ComponentData, ?components:Array<ComponentData>, ?condition:Condition, ?params:Array<Dynamic>) {
 		super();
@@ -22,10 +21,9 @@ class ComponentView extends Sprite implements IComponentView {
 
 	public function initialize() {}
 
-	function set_componentViews(value:Array<Sprite>):Array<Sprite>
-	{
+	function set_componentViews(value:Array<Sprite>):Array<Sprite> {
 		componentViews = value;
-		if (componentViews != null){
+		if (componentViews != null) {
 			for (componentView in componentViews) {
 				addChild(componentView);
 			}
