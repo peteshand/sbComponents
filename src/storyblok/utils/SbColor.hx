@@ -9,27 +9,73 @@ abstract SbColor(String) from String {
 
 	@:from
 	public static function fromString(value:String) {
+		// trace("fromString = " + value);
 		return new SbColor(value);
 	}
 
 	@:from
-	public static function fromInt(value:Int) {
+	public static function fromInt(value:UInt) {
+		// trace("fromInt = " + value);
 		var s:String = "0x" + Std.string(StringTools.hex(value, 8));
 		return new SbColor(s);
 	}
 
+	@:from
+	public static function fromSbColor(value:SbColor) {
+		// trace("fromSbColor = " + fromSbColor);
+		var s:Color = value;
+		return SbColor.fromInt(s);
+	}
+
+	@:to
+	public function toString():String {
+		// trace("toString");
+		return "0x" + StringTools.hex(toColor(), 8);
+	}
+
 	@:to
 	public function toColor():Color {
+		// trace("toColor");
 		if (this == null)
 			return 0x0;
 
 		var hex:String = "0x0";
-		if (this.indexOf("#") == 0)
-			hex = "0x" + this.substring(1, this.length);
-		else if (this.indexOf("0x") == 0)
-			hex = this;
-		var color:Color = Std.parseInt(hex);
+		var color:Color = 0;
+		if (Std.is(this, String)) {
+			if (this.indexOf("#") == 0)
+				hex = "0x" + this.substring(1, this.length);
+			else if (this.indexOf("0x") == 0)
+				hex = this;
+			color = Std.parseInt(hex);
+		}
+
+		var subColor:String = Reflect.getProperty(this, "color");
+		if (subColor != null) {
+			color = subColor;
+			color.alpha = 0xFF;
+		}
+
 		return color;
+	}
+
+	public function isNull():Bool {
+		if (this == null)
+			return true;
+		if (Std.is(this, String)) {
+			if (this == "")
+				return true;
+			else
+				return false;
+		} else {
+			var subColor:String = Reflect.getProperty(this, "color");
+			if (subColor != null) {
+				if (subColor == "")
+					return true;
+				else
+					return false;
+			}
+			return false;
+		}
 	}
 }
 /*
