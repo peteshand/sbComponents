@@ -18,7 +18,12 @@ abstract SbAsset(String) {
 		var url:String = SbCacher.cache("https:" + this + "?token=" + StoryBlok.token);
 		return url;
 		#else
-		return "https:" + this + "?token=" + StoryBlok.token;
+		// trace(this);
+		// trace(this.indexOf("./"));
+		if (this.indexOf("./") == 0)
+			return this;
+		else
+			return "https:" + this + "?token=" + StoryBlok.token;
 		#end
 	}
 }

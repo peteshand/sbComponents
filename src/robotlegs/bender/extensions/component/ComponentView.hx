@@ -30,4 +30,8 @@ class ComponentView extends Sprite implements IComponentView {
 		}
 		return componentViews;
 	}
+
+	public function update(componentData:ComponentData):Void {
+		//
+	}
 }

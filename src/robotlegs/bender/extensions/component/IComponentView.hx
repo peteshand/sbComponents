@@ -9,4 +9,5 @@ interface IComponentView {
 	var componentViews(default, set):Array<Sprite>;
 	var condition:Condition;
 	var params:Array<Dynamic>;
+	function update(componentData:ComponentData):Void;
 }
