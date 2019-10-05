@@ -4,8 +4,8 @@
 	"license": "MIT",
 	"tags": ["storyblok", "component"],
 	"description": "A component system for storyblok",
-	"version": "0.0.2",
-	"releasenote": "add SbDynamic",
+	"version": "0.0.3",
+	"releasenote": "remove node dependency",
 	"contributors": [ "p.j.shand" ],
 	"classPath": "src",
 	"dependencies": {

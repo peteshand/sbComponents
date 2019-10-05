@@ -42,7 +42,6 @@ class ComponentMap implements DescribedType {
 	}
 
 	public function get(componentName:String):Class<Dynamic> {
-		// trace("get: " + componentName);
 		return classes.get(componentName);
 	}
 

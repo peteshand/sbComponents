@@ -3,7 +3,7 @@ package storyblok.utils;
 #if electron
 import storyblok.cacher.SbCacher;
 #end
-import storyblok.StoryBlok;
+import storyblok.Storyblok;
 
 abstract SbAsset(String) {
 	public function new(value:String) {
@@ -15,7 +15,7 @@ abstract SbAsset(String) {
 		#if electron
 		if (this == null || this == "")
 			return null;
-		var url:String = SbCacher.cache("https:" + this + "?token=" + StoryBlok.token);
+		var url:String = SbCacher.cache("https:" + this + "?token=" + Storyblok.token);
 		return url;
 		#else
 		// trace(this);
@@ -23,7 +23,7 @@ abstract SbAsset(String) {
 		if (this.indexOf("./") == 0)
 			return this;
 		else
-			return "https:" + this + "?token=" + StoryBlok.token;
+			return "https:" + this + "?token=" + Storyblok.token;
 		#end
 	}
 }

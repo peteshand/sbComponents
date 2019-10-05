@@ -2,8 +2,6 @@ package robotlegs.bender.extensions.component;
 
 import robotlegs.bender.bundles.mvcs.Mediator;
 import robotlegs.bender.extensions.component.model.ComponentDataModel;
-import fuse.display.Sprite;
-import condition.Condition;
 
 /**
  * ...
@@ -23,6 +21,8 @@ class ComponentMediator extends Mediator {
 
 		if (view.componentData != null) {
 			componentDataModel.listen(view.componentData._uid, (data:ComponentData) -> {
+				if (data == null)
+					return;
 				view.update(data);
 			});
 		}

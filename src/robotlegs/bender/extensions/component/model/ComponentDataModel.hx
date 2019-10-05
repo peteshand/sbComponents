@@ -18,12 +18,6 @@ class ComponentDataModel {
 		langData.currentLangauge = currentLangauge;
 	}
 
-	/*public function get(lang:String = "default", uid:String):ComponentData {
-		var langData:LangData = data.get(componentData._uid);
-		if (langData == null)
-			return null;
-		return langData.get(uid);
-	}*/
 	function get(uid:String):LangData {
 		var langData:LangData = data.get(uid);
 		if (langData == null) {
@@ -34,7 +28,7 @@ class ComponentDataModel {
 	}
 
 	public function listen(uid:String, callback:ComponentData->Void) {
-		get(uid).current.add(callback);
+		get(uid).current.add(callback).fireOnAdd();
 	}
 
 	function set_currentLangauge(value:String):String {
