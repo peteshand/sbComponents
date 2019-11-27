@@ -42,7 +42,9 @@ class Storyblok {
 	}
 
 	static function checkForChanges() {
-		haxe.Timer.delay(checkForChanges, Storyblok.pollFrequency);
+		if (Storyblok.pollFrequency != -1) {
+			haxe.Timer.delay(checkForChanges, Storyblok.pollFrequency);
+		}
 		status.get(null, (value : StatusData) -> {
 			// trace(value);
 			version.value = value.space.version;
