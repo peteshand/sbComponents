@@ -4,8 +4,8 @@
 	"license": "MIT",
 	"tags": ["storyblok", "component"],
 	"description": "A component system for storyblok",
-	"version": "0.0.5",
-	"releasenote": "don't poll for changes when pollFrequency is set to -1",
+	"version": "0.0.6",
+	"releasenote": "remove deprecated refs",
 	"contributors": [ "p.j.shand" ],
 	"classPath": "src",
 	"dependencies": {

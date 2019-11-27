@@ -1,7 +1,7 @@
 package storyblok;
 
 import js.lib.Promise;
-import signal.Signal;
+import signals.Signal;
 import notifier.Notifier;
 import notifier.utils.Persist;
 
